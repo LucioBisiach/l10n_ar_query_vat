@@ -25,7 +25,7 @@ class ResPartner(models.Model):
             if rec.compute_api_data_tango == False and rec.vat and len(rec.vat) == 11:
                 API_URL = 'https://afip.tangofactura.com/Index/GetContribuyenteWithImpuestos/?cuit='
                 res = requests.get(API_URL + rec.vat)
-                if res.status_code == 200:
+                if res.status_code == 200 and rec.vat != '33693450239':
                     jsonObject = res.json()
 
                     if 'error' in jsonObject:
