@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from blinker import receiver_connected
-from odoo import models, fields ,api, _
+}from odoo import models, fields ,api, _
 from odoo.exceptions import ValidationError
 from odoo.tools import config
 
