@@ -30,7 +30,9 @@ class ResPartner(models.Model):
 
                     if 'error' in jsonObject:
                         raise ValidationError("Invalid VAT/CUIT/CUIL")
-
+                    if 'errorGetData' in jsonObject and jsonObject['errorGetData'] == False:
+                        break
+                        
                     if jsonObject['Contribuyente']['EsRI'] == True:
                         responsibility_type_id = self.env['l10n_ar.afip.responsibility.type'].search([('code','=','1')])
                     if jsonObject['Contribuyente']['EsExento'] == True:
